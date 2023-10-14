@@ -1,0 +1,34 @@
+.card-custom {
+    border: none;
+    border-radius: 31px;
+    background: #FFF;
+}
+
+.bg-type-question {
+    width: 131px;
+    height: 28px;
+    background-color: #363062;
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.bg-question {
+    color: #363062;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+}
+
+.card-custom-choice {
+    border-radius: 25.5px;
+    background: #4D4C7D;
+    width: 100%;
+    height: auto;
+    color: white;
+}

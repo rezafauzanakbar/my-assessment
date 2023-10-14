@@ -1,0 +1,40 @@
+<div class="background-sidebar position-fixed">
+    <nav class="sidebar" *ngIf="shouldShowNavbar()">
+        <a class="logo fw-bold text-uppercase" href="#">My <span>Assessment</span></a>
+        <div class="sidebar-nav">
+            <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/result']">
+                Result
+            </a>
+            <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/participant-ll']">
+                Participant
+            </a>
+            <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/home']">
+                Assessment
+            </a>
+        </div>
+        <button class="btn btn-custom" type="button" aria-label="Logout" (click)="logout()">
+            Logout
+        </button>
+    </nav>
+</div>
+
+<div class="background-sidebar opacity-0">
+    <nav class="sidebar" *ngIf="shouldShowNavbar()">
+        <a class="logo fw-bold text-uppercase" href="#">My <span>Assessment</span></a>
+        <div class="sidebar-nav">
+            <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/result']">
+                Result
+            </a>
+            <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/participant']">
+                Participant
+            </a>
+            <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/home']">
+                Assessment
+            </a>
+        </div>
+        <button class="btn btn-custom" type="button" aria-label="Logout" (click)="logout()">
+            Logout
+        </button>
+    </nav>
+</div>
+

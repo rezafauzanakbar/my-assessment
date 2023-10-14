@@ -1,0 +1,49 @@
+.bg-title {
+    border-radius: 0px 10px 10px 0px;
+    background: #363062;
+    color: white;
+    width: 50%;
+    padding: 10px;
+}
+
+.bg-status {
+    background-color: #F99417;
+    width: 100%;
+    color: #363062;
+    padding: 10px;
+}
+
+.title-status {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: -8px;
+}
+
+.due-status {
+    color: #4D4C7D;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 100px;
+}
+
+.bg-button-question {
+    border-radius: 25.5px;
+    border: none;
+    color: white;
+    width: 150px;
+    height: 40px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.bg-button-Participants {
+    border-radius: 25.5px;
+    border: none;
+    color: white;
+    width: 150px;
+    height: 40px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}

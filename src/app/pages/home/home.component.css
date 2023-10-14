@@ -1,0 +1,46 @@
+.card {
+    padding: 0px;
+    border-radius: 10px;
+}
+
+.table-custom {
+    border: 1px solid black;
+}
+
+.custom-bg-purple th {
+    background-color: #363062;
+    color: white;
+    padding-bottom: 18px;
+}
+
+thead {
+    height: 60px;
+}
+
+.table-custom {
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.text-bg-closed{
+    margin: 10px;
+    background-color: #F99417;
+    color: black;
+    border-radius: 10px;
+}
+
+.text-bg-open{
+    margin: 10px;
+    background-color: #4D4C7D;
+    color: white;
+    border-radius: 10px;
+}
+
+.btn-custom{
+    background-color: #363062;
+    color: white;
+    margin-bottom: 20px;
+    width: auto;
+    height: 50px;
+}

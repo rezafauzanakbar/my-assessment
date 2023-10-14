@@ -1,0 +1,95 @@
+<div class="container-fluid">
+    <div class="row vh-100 justify-content-center align-items-center">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-lg rounded-3 overflow-hidden">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="d-flex">
+                        <!-- <div class="col-md-6 side-left"></div> -->
+                        <div class="col-md-6 side-right">
+                            <div class="decoration"></div>
+                            <div class="decorationsecond"></div>
+                            <div class="p-5">
+                                <div class="form-group">
+                                    <label class="label-field mt-3">Username</label>
+                                    <div class="col-md-12 form-control">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <input type="text" class="form-control-field" placeholder="Username"
+                                                    [(ngModel)]="user.username">
+                                            </div>
+                                            <div class="col-md-2 d-flex justify-content-center ">
+                                                <img class="form-control-icon" src="assets/image/user.svg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label-field mt-3">Password</label>
+                                    <div class="col-md-12 form-control">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <input type="password" class="form-control-field" placeholder="Password"
+                                                    [(ngModel)]="user.password">
+
+                                            </div>
+                                            <div class="col-md-2 d-flex justify-content-center ">
+                                                <img class="form-control-icon" src="assets/image/key.svg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label-field mt-3">Nama</label>
+                                    <div class="col-md-12 form-control">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <input type="text" class="form-control-field" placeholder="Nama"
+                                                    [(ngModel)]="user.nama">
+                                            </div>
+                                            <div class="col-md-2 d-flex justify-content-center ">
+                                                <img class="form-control-icon" src="assets/image/at-symbol.svg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label-field mt-3">Email</label>
+                                    <div class="col-md-12 form-control">
+                                        <div class="row d-flex justify-content-between ">
+                                            <div class="col-md-10">
+                                                <input type="text" class="form-control-field" placeholder="Email"
+                                                    [(ngModel)]="user.email">
+                                            </div>
+                                            <div class="col-md-2 d-flex justify-content-center">
+                                                <img class="form-control-icon" src="assets/image/emoji-happy.svg"
+                                                    alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="text-center">
+                                    <span class="small">Already have an account?</span>
+                                    <a class="small text-warning" [routerLink]="['']">Login</a>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn btn-login" (click)="register()">
+                                    <div *ngIf="isLoading; else text">
+                                        <div class="spinner-border" role="status"></div>
+                                    </div>
+                                    <ng-template #text>
+                                        REGISTER
+                                    </ng-template>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

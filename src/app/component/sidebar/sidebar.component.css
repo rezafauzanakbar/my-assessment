@@ -1,0 +1,52 @@
+.background-sidebar {
+    width: 20vw;
+    height: 100vh;
+    background-color: #4D4C7D;
+}
+
+.sidebar {
+    width: 19vw;
+    background-color: #363062;
+    padding: 1.5rem;
+    height: 100vh;
+    color: white;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.logo>span {
+    display: block;
+    margin-bottom: 1.75rem;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 1.125rem 14px;
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 1.75rem;
+}
+
+.nav-link {
+    padding: 0.625rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+}
+
+.nav-link.active {
+    background-color: #363062;
+    background-color: #363062;
+    border: 1px solid lightgrey;
+}
+
+.btn-custom {
+    color: black;
+    background-color: orange;
+    width: 100%;
+}

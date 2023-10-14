@@ -1,0 +1,41 @@
+<div class="card card-custom mb-3">
+    <div class="card-body p-4">
+        <div class="bg-type-question">
+            <span>Multiple Choice</span>
+        </div>
+        <div *ngFor="let question of questions; let i = index">
+            <div class="bg-question">
+                <span>{{question.text}}</span>
+            </div>
+            <div class="col-md-12 mt-4">
+                <div class="row">
+                    <div class="col-md-6" *ngFor="let choice of question.choices; let j = index">
+                        <div class="card card-custom-choice mb-3" *ngIf="j < 2">
+                            <div class="card-body">
+                                <span>{{ choice.value }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" *ngFor="let choice of question.choices; let j = index">
+                        <div class="card card-custom-choice mb-3" *ngIf="j >= 2">
+                            <div class="card-body">
+                                <span>{{ choice.value }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card card-custom mt-3">
+    <div class="card-body p-4">
+        <div class="bg-type-question">
+            <span>Input text</span>
+        </div>
+        <div class="bg-question">
+            <span>Apakah yang anda sukai dari assessment ini ?</span>
+        </div>
+    </div>
+</div>

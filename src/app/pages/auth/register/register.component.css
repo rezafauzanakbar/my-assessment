@@ -1,0 +1,89 @@
+.side-left {
+    background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
+    background-position: center;
+    background-size: cover;
+    margin: 0px;
+}
+
+.side-right {
+    flex: 1;
+    background-color: #F8F8F8;
+}
+
+.decoration {
+    height: 70px;
+    background-color: #363062;
+}
+
+.decorationsecond {
+    height: 30px;
+    background-color: #4D4C7D;
+}
+
+.label-field {
+    color: #363062;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    width: 100%;
+    color: #ffffff;
+    border: 1px solid #d1d3e2;
+    border-radius: 8px;
+    padding: 0px;
+}
+
+.form-control-field {
+    height: 50px;
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.form-control-icon {
+    width: 25px;
+    height: auto;
+}
+
+a {
+    color: #4e73df;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #224abe;
+    text-decoration: underline;
+}
+
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-login {
+    color: #fff;
+    background-color: #363062;
+    border-color: #363062;
+    width: 100%;
+    font-size: 20px;
+    border-radius: 0px;
+    height: 60px;
+}
+
+.btn-login:hover {
+    color: #fff;
+    background-color: #2e59d9;
+    border-color: #2653d4;
+}
