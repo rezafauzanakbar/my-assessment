@@ -1,5 +1,5 @@
 export interface Choice {
-  isTrue: boolean;
+  true: boolean;
   value: string;
 }
 

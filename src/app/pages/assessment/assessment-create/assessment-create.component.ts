@@ -25,19 +25,19 @@ export class AssessmentCreateComponent implements OnInit {
         text: '',
         choices: [
           {
-            isTrue: true,
+            true: true,
             value: '',
           },
           {
-            isTrue: false,
+            true: false,
             value: '',
           },
           {
-            isTrue: false,
+            true: false,
             value: '',
           },
           {
-            isTrue: false,
+            true: false,
             value: '',
           },
         ],
@@ -66,17 +66,17 @@ export class AssessmentCreateComponent implements OnInit {
     this.assessment.questions.push({
       text: '',
       choices: [
-        { isTrue: true, value: '' },
-        { isTrue: false, value: '' },
-        { isTrue: false, value: '' },
-        { isTrue: false, value: '' },
+        { true: true, value: '' },
+        { true: false, value: '' },
+        { true: false, value: '' },
+        { true: false, value: '' },
       ],
     });
   }
 
   addChoice(question: any) {
     if (question.choices.length < 4) {
-      question.choices.push({ isTrue: false, value: '' });
+      question.choices.push({ true: false, value: '' });
     }
   }
 
@@ -89,7 +89,7 @@ export class AssessmentCreateComponent implements OnInit {
   }
 
   isTrueChoiceCount(question: any): number {
-    return question.choices.filter((choice: any) => choice.isTrue).length;
+    return question.choices.filter((choice: any) => choice.true).length;
   }
 
   isAssessmentValid(): boolean {
@@ -97,7 +97,7 @@ export class AssessmentCreateComponent implements OnInit {
     for (const question of this.assessment.questions) {
       let trueChoiceCount = 0;
       for (const choice of question.choices) {
-        if (choice.isTrue) {
+        if (choice.true) {
           trueChoiceCount++;
         }
       }
