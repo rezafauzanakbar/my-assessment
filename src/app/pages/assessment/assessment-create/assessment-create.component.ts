@@ -45,7 +45,7 @@ export class AssessmentCreateComponent implements OnInit {
     ],
   };
 
-  constructor(private assessmentService: AssessmentService) {}
+  constructor(private assessmentService: AssessmentService) { }
 
   saveAssesment() {
     if (this.isAssessmentValid()) {
@@ -145,8 +145,7 @@ export class AssessmentCreateComponent implements OnInit {
   choice: ChoiceModel = {
     id: 0,
     value: '',
-    questionId: 0,
-    isTrue: false,
+    true: false,
   };
 
   // addParticipant() {

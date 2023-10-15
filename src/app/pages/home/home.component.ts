@@ -85,9 +85,9 @@ export class HomeComponent implements OnInit {
         }
 
         // Untuk memberikan background pada status
-        if (this.status == "open") {
+        if (this.status == "Open") {
           this.isStatus = true
-        } else if (this.status == "closed") {
+        } else if (this.status == "Closed") {
           this.isStatus = false
         }
       }

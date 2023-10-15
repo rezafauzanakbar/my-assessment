@@ -30,7 +30,7 @@
         </div>
         <div class="container mt-2 p-4">
             <div *ngIf="showQuestion">
-                <app-question></app-question>
+                <app-question [questions]="this.question"></app-question>
             </div>
             <div *ngIf="showParticipant">
                 <app-participant [participants]="this.participant"></app-participant>
