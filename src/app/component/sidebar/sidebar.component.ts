@@ -14,11 +14,11 @@ export class SidebarComponent {
   constructor(private router: Router) {
     this.fixedRoutes = [''];
     this.includeRoutes = [
-      '/participant',
       '/result',
       '/home',
       '/assessment-detail',
-      '/assessment-create'
+      '/assessment-create',
+      '/participant'
     ];
   }
 

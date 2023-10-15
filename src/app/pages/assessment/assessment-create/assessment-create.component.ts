@@ -38,10 +38,12 @@ export class AssessmentCreateComponent implements OnInit {
 
   user: IUser = {
     id: 0,
-    nama: '',
+    name: '',
     username: '',
     password: '',
-    email: ''
+    email: '',
+    active: false,
+    admin: false
   };
 
   choice: ChoiceModel = {
@@ -52,25 +54,25 @@ export class AssessmentCreateComponent implements OnInit {
   };
 
   addQuestion() {
-    this.assessment.questions.push(this.question);
-    this.question = {
-      id: 0,
-      text: '',
-      image: '',
-      type: 'choices',
-      choices: []
-    };
+    // this.assessment.questions.push(this.question);
+    // this.question = {
+    //   id: 0,
+    //   text: '',
+    //   image: '',
+    //   type: 'choices',
+    //   choices: []
+    // };
   }
 
   addParticipant() {
-    this.assessment.participants.push(this.user);
-    this.user = {
-      id: 0,
-      nama: '',
-      username: '',
-      password: '',
-      email: ''
-    };
+    // this.assessment.participants.push(this.user);
+    // this.user = {
+    //   id: 0,
+    //   nama: '',
+    //   username: '',
+    //   password: '',
+    //   email: ''
+    // };
   }
 
   addChoice(question: Number) {

@@ -1,3 +1,15 @@
+.border-left-primary {
+    border-left: .25rem solid #4e73df !important
+}
+
+.border-left-success {
+    border-left: .25rem solid #1cc88a !important
+}
+
+.border-left-warning {
+    border-left: .25rem solid #f6c23e !important
+}
+
 .card {
     padding: 0px;
     border-radius: 10px;
@@ -43,4 +55,16 @@ thead {
     margin-bottom: 20px;
     width: auto;
     height: 50px;
+}
+
+.spinner-custom{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.pagination-custom span{
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-top: 10px;
 }

@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register(): void {
-    if (this.user.username != "" && this.user.password != "" && this.user.email != "" && this.user.nama != "") {
+    if (this.user.username != "" && this.user.password != "" && this.user.email != "" && this.user.name != "") {
       this.isLoading = true;
       this.authService.register(this.user).pipe(catchError(this.handleError))
         .subscribe((respon: IUser) => {

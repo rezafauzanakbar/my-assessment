@@ -1,1 +1,65 @@
-<p>participant-all works!</p>
+<div class="d-flex">
+    <app-sidebar></app-sidebar>
+    <div class="container-fluid p-0" style="background-color: #F5EFEF;">
+
+        <nav class="navbar navbar-light bg-white shadow">
+            <!-- Topbar Search -->
+            <div style="padding-left: 45px;">
+                <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                        aria-label="Search" [(ngModel)]="keyword">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" (click)="search(keyword)">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="p-5">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">PARTICIPANT</h1>
+            </div>
+            <div class="row">
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Jumlah Participant</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{countParticipant}}</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-user fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLES -->
+            <div *ngFor="let item of participant" class="col-md-12">
+                <div  class="card card-custom-participant mb-3 shadow-lg">
+                    <div class="card-body d-flex justify-content-between">
+                        <div class="d-flex justify-content-around">
+                            <div class="bg-line-participant"></div>
+                            <div class="container-participant">
+                                <h4>{{item.name}}</h4>
+                                <span class="small text-secondary">{{item.email}}</span>
+                            </div>
+                        </div>
+                        <div class="container-participant-score">
+                            <span class="d-flex justify-content-center align-items-center">96</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="isLoading" class="d-flex justify-content-center spinner-custom">
+                <div class="spinner-border" role="status"></div>
+            </div>
+        </div>
+    </div>
+</div>

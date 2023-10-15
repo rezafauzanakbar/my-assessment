@@ -1,11 +1,16 @@
 import { IQuestion } from "./i-question"
+import { IResult } from "./i-result"
 import { IUser } from "./i-user"
 
 export interface IAssessment {
-    id?: Number
+	id?: number
 	title: String
-	questions?: Array<IQuestion> // one to many
 	password: String
-	participants?: Array<IUser> // many to many
 	endDate: Date
+	participants?: Array<IUser> // many to many
+	result?: Array<IResult>
+	questions?: Array<IQuestion> // one to many
+
+
+
 }

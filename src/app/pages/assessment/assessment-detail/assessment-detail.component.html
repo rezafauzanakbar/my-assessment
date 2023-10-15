@@ -3,13 +3,13 @@
     <div class="container-fluid p-0" style="background-color: #F5EFEF;">
         <div class="bg-title mt-5">
             <div class="container">
-                <h3 class="d-flex justify-content-center align-items-center">Assessment Keren Banget</h3>
+                <h3 class="d-flex justify-content-center align-items-center">{{title}}</h3>
             </div>
         </div>
         <div class="bg-status mt-3">
             <div class="container">
-                <h3 class="title-status">CLOSED</h3>
-                <span class="due-status">11 Oktober 2023</span>
+                <h3 class="title-status">{{status}}</h3>
+                <span class="due-status">{{endDate | date: 'EEE MMM dd yyyy'}}</span>
             </div>
         </div>
         <div class="container mt-3 p-4">
@@ -33,7 +33,7 @@
                 <app-question></app-question>
             </div>
             <div *ngIf="showParticipant">
-                <app-participant></app-participant>
+                <app-participant [participants]="this.participant"></app-participant>
             </div>
         </div>
     </div>

@@ -1,0 +1,51 @@
+.border-left-primary {
+    border-left: .25rem solid #4e73df !important
+}
+
+.card-custom {
+    border: none;
+    border-radius: 31px;
+    background: #FFF;
+}
+
+.card-custom-participant {
+    border-radius: 25.5px;
+    background: #363062;
+    width: 100%;
+    height: auto;
+    color: white;
+}
+
+.bg-type-participant {
+    width: 131px;
+    height: 28px;
+    background-color: #363062;
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.bg-line-participant {
+    width: 3px;
+    height: auto;
+    border-radius: 1px;
+    background-color: #F99417;
+}
+
+.container-participant{
+    margin-left: 10px;
+}
+
+.margin-participant{
+    margin-bottom: -8px;
+}
+
+.container-participant-score{
+    padding-top: 17px;
+    width: 50px;
+    height: auto;
+    background-color: #F99417;
+    border-radius: 100%;
+    color: black;
+}

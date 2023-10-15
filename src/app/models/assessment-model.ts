@@ -1,14 +1,20 @@
 import { IAssessment } from "../interfaces/i-assessment";
 import { IQuestion } from "../interfaces/i-question";
+import { IResult } from "../interfaces/i-result";
 import { IUser } from "../interfaces/i-user";
 import { QuestionModel } from "./question-model";
+import { ResultModel } from "./result-model";
 import { UserModel } from "./user-model";
 
 export class AssessmentModel implements IAssessment {
-    id: Number = 0
+	id?: number | undefined
 	title: String = ""
-	questions: Array<IQuestion> = [new QuestionModel()] // one to many
 	password: String = ""
-	participants: Array<IUser> = [new UserModel()] // many to many
 	endDate: Date = new Date()
+	participants?: Array<IUser> = [new UserModel] // many to many
+	result?: Array<IResult> = [new ResultModel]
+	questions?: Array<IQuestion> = [new QuestionModel] // one to many
+
+
+
 }
