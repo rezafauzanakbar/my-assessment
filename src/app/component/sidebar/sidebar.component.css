@@ -50,3 +50,12 @@
     background-color: orange;
     width: 100%;
 }
+
+@media (max-width: 933px) {
+    .background-sidebar {
+        width: 20vw;
+        height: 100vh;
+        background-color: #4D4C7D;
+        display: none;
+    }
+  }

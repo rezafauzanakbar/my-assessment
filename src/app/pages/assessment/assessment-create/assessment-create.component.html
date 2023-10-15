@@ -45,7 +45,8 @@
             </div>
             <div class="card card-custom mb-3 mt-4 shadow-lg">
                 <div class="card-body p-4">
-                    <button type="button" class="btn btn-custom-participant" (click)="addQuestion()">Add Question</button>
+                    <button type="button" class="btn btn-custom-participant" (click)="addQuestion()">Add
+                        Question</button>
                     <div class="card-body" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
                         <div *ngFor="let question of assessment.questions; let i = index">
                             <div class="card mt-3">
@@ -58,10 +59,11 @@
                                         <label>Question Image</label>
                                         <input type="text" class="form-control" [(ngModel)]="question.image">
                                     </div>
-                                    <button type="button" class="btn btn-custom" (click)="addChoice(i)">Add Choice</button>
+                                    <button type="button" class="btn btn-custom" (click)="addChoice(i)">Add
+                                        Choice</button>
                                 </div>
                             </div>
-    
+
                             <div class="card mt-3">
                                 <div class="card-body">
                                     <div *ngFor="let choice of question.choices; let j = index">
@@ -70,8 +72,8 @@
                                             <input type="text" class="form-control" [(ngModel)]="choice.value" required>
                                         </div>
                                         <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" [(ngModel)]="choice.isTrue">
-                                            <label class="form-check-label">Is True</label>
+                                            <input type="checkbox" class="form-check-input" [(ngModel)]="choice.true">
+                                            <label class=" form-check-label">Is True</label>
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +96,8 @@
             </div>
             <div class="card card-custom mb-3 mt-4 shadow-lg">
                 <div class="card-body p-4">
-                    <button type="button" class="btn btn-custom-participant" (click)="addParticipant()">Add Participant</button>
+                    <button type="button" class="btn btn-custom-participant" (click)="addParticipant()">Add
+                        Participant</button>
                     <div class="card-body" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
                         <div *ngFor="let participant of assessment.participants; let i = index" class="mt-3">
                             <p>Participant Ke-{{i+1}}</p>

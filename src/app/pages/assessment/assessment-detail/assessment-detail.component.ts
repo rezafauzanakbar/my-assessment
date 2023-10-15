@@ -31,6 +31,9 @@ export class AssessmentDetailComponent implements OnInit, OnDestroy {
   // untuk mengirim ke component participant
   participant: [] = []
 
+  // untuk mengirim ke component question
+  question: [] = []
+
   // pemberian status
   status: string
   currentDate: Date
@@ -62,13 +65,15 @@ export class AssessmentDetailComponent implements OnInit, OnDestroy {
       this.assessmentService.getDetail(params.get('id'))
         .subscribe((resp: any) => {
           this.assessment = resp
-          console.log(this.assessment);
 
           this.title = resp.data.title
           this.endDate = new Date(resp.data.endDate)
 
           // untuk mengambil data participant
           this.participant = resp.data.participants
+
+          // untuk mengambil data question
+          this.question = resp.data.questions
 
           // Merubah format untuk dibandingkan
           const currentDateFormatted = format(this.currentDate, 'yyyy-MM-dd hh:mm:ss');

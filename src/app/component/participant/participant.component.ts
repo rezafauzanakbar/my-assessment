@@ -22,7 +22,6 @@ export class ParticipantComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.participants);
   }
 
 }

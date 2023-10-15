@@ -49,8 +49,7 @@ export class AssessmentCreateComponent implements OnInit {
   choice: ChoiceModel = {
     id: 0,
     value: '',
-    questionId: 0,
-    isTrue: false
+    true: false
   };
 
   addQuestion() {
@@ -80,8 +79,7 @@ export class AssessmentCreateComponent implements OnInit {
     this.choice = {
       id: 0,
       value: '',
-      questionId: question,
-      isTrue: false
+      true: false
     };
   }
 
