@@ -25,4 +25,14 @@ export class UserService extends BaseService {
       headers,
     });
   }
+
+  public getDetailUser(id: number): Observable<IUser[]> {
+    const headers = {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${this.token}`
+    };
+    return this.http.get<IUser[]>(`${environment.baseURL}/user/${id}`, {
+      headers,
+    })
+  }
 }

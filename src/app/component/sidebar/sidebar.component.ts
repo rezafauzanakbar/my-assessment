@@ -32,7 +32,7 @@ export class SidebarComponent {
 
   logout() {
     Swal.fire({
-      title: 'Apakah Anda yakin Ingin?',
+      title: 'Apakah Anda yakin Ingin Logout?',
       text: 'Anda tidak dapat mengembalikan tindakan ini!',
       icon: 'warning',
       showCancelButton: true,

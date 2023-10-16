@@ -25,6 +25,11 @@
                             [style.background-color]="isParticipantActive ? '#292355' : '#4D4C7D'"
                             (click)="toggleButton('participant')">Participants</button>
                     </div>
+                    <div class="col-auto">
+                        <button class="bg-button-Participants" (click)="toggleAddParticipant()"
+                            [style.background-color]="isAddParticipantActive ? '#292355' : '#4D4C7D'"
+                            (click)="toggleButton('addparticipant')">Add Participants</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -34,6 +39,67 @@
             </div>
             <div *ngIf="showParticipant">
                 <app-participant [participants]="this.participant"></app-participant>
+            </div>
+            <div *ngIf="showAddParticipant">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card card-custom">
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center" scope="col" style="width: 20%">
+                                                        Nama</th>
+                                                    <th class="text-center" scope="col" style="width: 40%">Email</th>
+                                                    <th class="text-center" scope="col" style="width: 40%">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let item of filterParticipant">
+                                                    <td class="text-center">{{ item.name }}</td>
+                                                    <td class="text-center">{{ item.email }}</td>
+                                                    <td class="text-center">
+                                                        <button class="btn btn-sm btn-custom"
+                                                            [disabled]="isIdExists(item.id)"
+                                                            (click)="addParti(item.id)">
+                                                            Add Participant
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card card-custom">
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center" scope="col" style="width: 50%">Nama</th>
+                                                    <th class="text-center" scope="col" style="width: 50%">Email</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let item of dataUser">
+                                                    <td class="text-center">{{ item.name }}</td>
+                                                    <td class="text-center">{{ item.email }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-custom mt-3 d-flex justify-content-end"
+                                    (click)="updateParticipant()">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
