@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
   countAssesment: number = 0;
   countActive: number = 0;
   countClosed: number = 0;
-  idAseesment: any;
 
   // efek Loading
   isLoading: boolean;
@@ -46,13 +45,6 @@ export class HomeComponent implements OnInit {
   // Mengambil data assessments
   assessments: IAssessment[] = [];
 
-  //Mengambil data user
-  participant: IUser[] = [];
-  participants: IUser[] = [];
-  filterParticipant: IUser[] = [];
-
-  data: any[] = [];
-
   constructor(
     private assessmentService: AssessmentService,
     private assessmentNew: AssessmentServiceNew,
@@ -70,75 +62,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAssessment();
-  }
-
-  open(content: any, id: any) {
-    this.getAllParticipant();
-    this.idAseesment = id;
-    this.modalService
-      .open(content, { ariaLabelledBy: 'modal-basic-title' })
-      .result.then(
-        (result) => {
-          this.closeResult = `Closed with: ${result}`;
-        },
-        (reason) => {
-          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        }
-      );
-  }
-
-  getAllParticipant() {
-    this.userService
-      .getAllUser()
-      .pipe(catchError(this.handleError))
-      .subscribe((response: any) => {
-        this.participant = response.data;
-        this.assessmentService.getDetail(this.idAseesment);
-
-        this.assessmentService
-          .getDetail(this.idAseesment)
-          .subscribe((resp: any) => {
-            const participants = resp.data.participants;
-
-            // Menyaring data yang tidak ada di participants
-            const filteredParticipants = this.participant.filter(
-              (participant) => {
-                return !participants.some((p: any) => p.id === participant.id);
-              }
-            );
-            this.filterParticipant = filteredParticipants;
-          });
-      });
-  }
-
-  addParti(i: any) {
-    this.data.push(i);
-  }
-
-  updateParticipant() {
-    this.assessmentNew
-      .updateParticipantList(this.idAseesment, this.data)
-      .subscribe(
-        (response) => {
-          console.log('Data berhasil diperbarui', response);
-        },
-        (error) => {
-          console.error('Gagal mengirim permintaan', error);
-        }
-      );
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      this.filterParticipant = [];
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      this.filterParticipant = [];
-      return 'by clicking on a backdrop';
-    } else {
-      this.filterParticipant = [];
-      return `with: ${reason}`;
-    }
   }
 
   getAssessment() {
