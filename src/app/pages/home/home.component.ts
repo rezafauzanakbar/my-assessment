@@ -48,6 +48,8 @@ export class HomeComponent implements OnInit {
 
   //Mengambil data user
   participant: IUser[] = [];
+  participants: IUser[] = [];
+  filterParticipant: IUser[] = [];
 
   data: any[] = [];
 
@@ -89,8 +91,23 @@ export class HomeComponent implements OnInit {
     this.userService
       .getAllUser()
       .pipe(catchError(this.handleError))
-      .subscribe((resp: any) => {
-        this.participant = resp.data;
+      .subscribe((response: any) => {
+        this.participant = response.data;
+        this.assessmentService.getDetail(this.idAseesment);
+
+        this.assessmentService
+          .getDetail(this.idAseesment)
+          .subscribe((resp: any) => {
+            const participants = resp.data.participants;
+
+            // Menyaring data yang tidak ada di participants
+            const filteredParticipants = this.participant.filter(
+              (participant) => {
+                return !participants.some((p: any) => p.id === participant.id);
+              }
+            );
+            this.filterParticipant = filteredParticipants;
+          });
       });
   }
 
@@ -113,10 +130,13 @@ export class HomeComponent implements OnInit {
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
+      this.filterParticipant = [];
       return 'by pressing ESC';
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      this.filterParticipant = [];
       return 'by clicking on a backdrop';
     } else {
+      this.filterParticipant = [];
       return `with: ${reason}`;
     }
   }
