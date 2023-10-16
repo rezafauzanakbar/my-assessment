@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, catchError, throwError } from 'rxjs';
 import { IAssessment } from 'src/app/interfaces/i-assessment';
 import { format } from 'date-fns';
@@ -8,6 +8,7 @@ import { UserService } from 'src/app/services/user.service';
 import { AssessmentServiceNew } from 'src/app/services/assessmentnew.service';
 import { IUser } from 'src/app/interfaces/i-user';
 import { HttpErrorResponse } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-assessment-detail',
@@ -50,7 +51,6 @@ export class AssessmentDetailComponent implements OnInit, OnDestroy {
   data: any[] = [];
 
   // menampung data user
-  user: IUser[] = [];
   dataUser: any[] = []
 
   // Get id Assessment
@@ -64,7 +64,8 @@ export class AssessmentDetailComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private assessmentService: AssessmentService,
     private userService: UserService,
-    private assessmentNew: AssessmentServiceNew
+    private assessmentNew: AssessmentServiceNew,
+    private router: Router
   ) {
 
     // // untuk button active
@@ -118,10 +119,10 @@ export class AssessmentDetailComponent implements OnInit, OnDestroy {
     console.log(this.data);
 
     this.userService.getDetailUser(i).pipe(catchError(this.handleError)).subscribe((response: any) => {
-      this.user = response.data
+      const userData = response.data;
+      this.dataUser.push(userData);
+      console.log(this.dataUser); // Debugging purpose
     })
-
-    this.dataUser.push(this.user)
   }
 
   isIdExists(id: any): boolean {
@@ -129,16 +130,24 @@ export class AssessmentDetailComponent implements OnInit, OnDestroy {
   }
 
   updateParticipant() {
-    this.assessmentNew
-      .updateParticipantList(this.idAseesment, this.data)
-      .subscribe(
-        (response) => {
-          console.log('Data berhasil diperbarui', response);
-        },
-        (error) => {
-          console.error('Gagal mengirim permintaan', error);
-        }
-      );
+    if (this.data.length !== 0) {
+      this.assessmentNew
+        .updateParticipantList(this.idAseesment, this.data)
+        .subscribe(
+          (response) => {
+            console.log('Data berhasil diperbarui', response);
+            Swal.fire('Add Participant Success!', '', 'success');
+            this.router.navigate(['/home']);
+          },
+          (error) => {
+            console.error('Gagal mengirim permintaan', error);
+            Swal.fire('Sorry, Failed Add Participant!', '', 'error');
+          }
+        );
+    } else {
+      Swal.fire('Please, Add Participant!', '', 'error');
+    }
+
   }
 
   getDataDetail() {
