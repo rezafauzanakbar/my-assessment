@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -15,7 +15,7 @@ import { AssessmentCreateComponent } from './pages/assessment/assessment-create/
 import { QuestionComponent } from './component/question/question.component';
 import { ParticipantComponent } from './component/participant/participant.component';
 import { ResultComponent } from './pages/result/result.component';
-import { ParticipantAllComponent } from './pages/participant-all/participant-all.component'
+import { ParticipantAllComponent } from './pages/participant-all/participant-all.component';
 
 @NgModule({
   declarations: [
@@ -29,16 +29,17 @@ import { ParticipantAllComponent } from './pages/participant-all/participant-all
     QuestionComponent,
     ParticipantComponent,
     ResultComponent,
-    ParticipantAllComponent
+    ParticipantAllComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    NgbModalModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

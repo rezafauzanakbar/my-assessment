@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment.developer';
 @Injectable({
   providedIn: 'root',
 })
-export class AssessmentService {
+export class AssessmentServiceNew {
   private token = localStorage.getItem('token');
 
   constructor(private http: HttpClient) {}
@@ -20,5 +20,21 @@ export class AssessmentService {
     return this.http.post(`${environment.baseURL}/assessment/`, assessment, {
       headers,
     });
+  }
+
+  updateParticipantList(id: number, idList: number[]) {
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${this.token}`,
+    };
+    const url = `${environment.baseURL}/assessment/${id}/participant`;
+    console.log(url);
+    return this.http.put(
+      url,
+      { idList },
+      {
+        headers,
+      }
+    );
   }
 }
