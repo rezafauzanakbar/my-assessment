@@ -17,8 +17,8 @@ export class AssessmentService extends BaseService {
 
   public getAll(): Observable<IAssessment[]> {
     const headers = {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${this.token}`,
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${this.token}`,
     };
     return this.http.get<IAssessment[]>(`${environment.baseURL}/assessment/`, {
       headers,
@@ -27,12 +27,14 @@ export class AssessmentService extends BaseService {
 
   public getDetail(id: number): Observable<IAssessment[]> {
     const headers = {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${this.token}`
-    }
-    return this.http.get<IAssessment[]>(`${environment.baseURL}/assessment/${id}`, {
-      headers,
-    });
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${this.token}`,
+    };
+    return this.http.get<IAssessment[]>(
+      `${environment.baseURL}/assessment/${id}`,
+      {
+        headers,
+      }
+    );
   }
 }
-

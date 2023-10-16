@@ -7,7 +7,7 @@ import { ChoiceModel } from 'src/app/models/choice-model';
 import { QuestionModel } from 'src/app/models/question-model';
 import { ResultModel } from 'src/app/models/result-model';
 import { UserModel } from 'src/app/models/user-model';
-import { AssessmentService } from 'src/app/services/assessmentnew.service';
+import { AssessmentServiceNew } from 'src/app/services/assessmentnew.service';
 
 @Component({
   selector: 'app-assessment-create',
@@ -45,7 +45,7 @@ export class AssessmentCreateComponent implements OnInit {
     ],
   };
 
-  constructor(private assessmentService: AssessmentService) { }
+  constructor(private assessmentService: AssessmentServiceNew) {}
 
   saveAssesment() {
     if (this.isAssessmentValid()) {
