@@ -175,7 +175,7 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Assessment Form</h4>
+    <h4 class="modal-title" id="modal-basic-title">Tambahkan participant</h4>
   </div>
   <div class="modal-body">
     <table class="table">
@@ -188,7 +188,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of participant">
+        <tr *ngFor="let item of filterParticipant">
           <td>{{ item.id }}</td>
           <td>{{ item.name }}</td>
           <td>{{ item.email }}</td>
