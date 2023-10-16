@@ -4,7 +4,8 @@
             <span>Participant</span>
         </div>
         <div class="col-md-12">
-            <div *ngFor="let participant of participants; let i = index"  class="card card-custom-participant mb-3 shadow-lg">
+            <div *ngFor="let participant of participants; let i = index"
+                class="card card-custom-participant mb-3 shadow-lg">
                 <div class="card-body d-flex justify-content-between">
                     <div class="d-flex justify-content-around">
                         <div class="bg-line-participant"></div>
@@ -14,7 +15,8 @@
                         </div>
                     </div>
                     <div class="container-participant-score">
-                        <span class="d-flex justify-content-center align-items-center">96</span>
+                        <!-- <span
+                            class="d-flex justify-content-center align-items-center">{{participant.results[i].finalScore}}</span> -->
                     </div>
                 </div>
             </div>

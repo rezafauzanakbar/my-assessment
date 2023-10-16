@@ -4,10 +4,7 @@ import { catchError, throwError } from 'rxjs';
 import { IAssessment } from 'src/app/interfaces/i-assessment';
 import { format } from 'date-fns';
 import { AssessmentService } from 'src/app/services/assessment.service';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { IUser } from 'src/app/interfaces/i-user';
-import { UserService } from 'src/app/services/user.service';
-import { AssessmentServiceNew } from 'src/app/services/assessmentnew.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -90,10 +87,12 @@ export class HomeComponent implements OnInit {
           // Untuk memberikan status
           if (endDateFormatted > currentDateFormatted) {
             this.status = 'Open';
-            this.countActive = +this.status.length;
+            this.countActive += 1
+            console.log(this.countActive);
+
           } else {
             this.status = 'Closed';
-            this.countClosed = +this.status.length;
+            this.countClosed += 1
           }
 
           // Untuk memberikan background pada status
@@ -105,6 +104,27 @@ export class HomeComponent implements OnInit {
         }
       });
   }
+
+  deleteAssessement(id: number) {
+    Swal.fire({
+      title: 'Are you sure to delete?',
+      text: 'Anda tidak dapat mengembalikan tindakan ini!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Ya',
+      cancelButtonText: 'Tidak'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.assessmentService.deleteAssessment(id).pipe(catchError(this.handleError)).subscribe((respon: any) => {
+          Swal.fire('Delete Success!', '', 'success');
+          window.location.reload();
+        })
+      } else {
+        Swal.fire('Tindakan dibatalkan.', '', 'error');
+      }
+    });
+  }
+
 
   getPageItems(): any[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;

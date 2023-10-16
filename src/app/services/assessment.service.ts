@@ -37,4 +37,17 @@ export class AssessmentService extends BaseService {
       }
     );
   }
+
+  public deleteAssessment(id: number): Observable<IAssessment[]> {
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${this.token}`,
+    };
+    return this.http.delete<IAssessment[]>(
+      `${environment.baseURL}/assessment/${id}`,
+      {
+        headers,
+      }
+    );
+  }
 }

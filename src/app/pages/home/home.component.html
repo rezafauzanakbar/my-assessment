@@ -88,7 +88,8 @@
             <th scope="col" style="width: 40%">Title</th>
             <th scope="col" style="width: 10%">Status</th>
             <th scope="col" style="width: 40%">Due Time</th>
-            <th scope="col" style="width: 10%"></th>
+            <th scope="col" style="width: 5%"></th>
+            <th scope="col" style="width: 5%"></th>
           </tr>
         </thead>
         <tbody>
@@ -115,6 +116,10 @@
 
             <td>
               <a [routerLink]="['/assessment-detail', item.id]"><img src="assets/image/chevron-right.svg" alt="" /></a>
+            </td>
+            <td>
+              <button class="btn btn-delete" (click)="deleteAssessement(item.id)"><i
+                  class="fas fa-trash text-danger"></i></button>
             </td>
           </tr>
         </tbody>

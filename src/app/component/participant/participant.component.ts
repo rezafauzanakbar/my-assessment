@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IResult } from 'src/app/interfaces/i-result';
 import { ResultModel } from 'src/app/models/result-model';
 
 interface Participant {
@@ -6,7 +7,7 @@ interface Participant {
   username: string;
   email: string;
   name: string;
-  results: [];
+  results: IResult[];
 }
 
 @Component({
@@ -22,6 +23,8 @@ export class ParticipantComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.participants);
+
   }
 
 }

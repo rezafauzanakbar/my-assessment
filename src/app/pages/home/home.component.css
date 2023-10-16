@@ -35,21 +35,21 @@ thead {
     text-align: center;
 }
 
-.text-bg-closed{
+.text-bg-closed {
     margin: 10px;
     background-color: #F99417;
     color: black;
     border-radius: 10px;
 }
 
-.text-bg-open{
+.text-bg-open {
     margin: 10px;
     background-color: #4D4C7D;
     color: white;
     border-radius: 10px;
 }
 
-.btn-custom{
+.btn-custom {
     background-color: #363062;
     color: white;
     margin-bottom: 20px;
@@ -57,14 +57,20 @@ thead {
     height: 50px;
 }
 
-.spinner-custom{
+.spinner-custom {
     display: flex;
     text-align: center;
     justify-content: center;
 }
 
-.pagination-custom span{
+.pagination-custom span {
     margin-right: 10px;
     margin-left: 10px;
     padding-top: 10px;
+}
+
+.btn-delete {
+    background-color: none;
+    border: none;
+    margin-top: -4px;
 }
