@@ -13,28 +13,11 @@ export class QuestionComponent implements OnInit {
   // menerima data question dari parent
   @Input() questions: IQuestion[] = []
 
-  // memberikan tanda benar
-  isBenar: Boolean
-  choice: IChoice
-
-  constructor() {
-    this.isBenar = false
-    this.choice = new ChoiceModel()
-  }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getStatus()
+    console.log(this.questions);
+
   }
 
-  getStatus() {
-    for (var i = 0; i < this.questions.length; i++) {
-      for (var j = i; j < this.questions[i].choices.length; j++) {
-        if (this.questions[i].choices[j].true == true) {
-          this.isBenar = true
-        } else if (this.questions[i].choices[j].true == false) {
-          this.isBenar = false
-        }
-      }
-    }
-  }
 }
