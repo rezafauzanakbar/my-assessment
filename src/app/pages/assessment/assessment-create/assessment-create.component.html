@@ -30,7 +30,11 @@
             <label class="text-secondary">Close Date</label>
             <input type="date" class="form-control mt-1" [(ngModel)]="assessment.endDate" required />
           </div>
+          <div *ngFor="let item of errors">
+            <span class="text-danger" style="font-size: 13px;">{{item.message}}</span>
+          </div>
         </div>
+
       </div>
 
       <!-- QUESTION -->
@@ -96,7 +100,7 @@
           Submit Assessment
         </button>
       </div>
-      
+
     </div>
   </div>
 </div>

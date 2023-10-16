@@ -46,10 +46,7 @@ export class HomeComponent implements OnInit {
   assessments: IAssessment[] = [];
 
   constructor(
-    private assessmentService: AssessmentService,
-    private assessmentNew: AssessmentServiceNew,
-    private modalService: NgbModal,
-    private userService: UserService
+    private assessmentService: AssessmentService
   ) {
     this.currentDate = new Date();
     this.endDate = new Date();
@@ -62,6 +59,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAssessment();
+    this.getPageItems()
   }
 
   getAssessment() {
@@ -70,6 +68,8 @@ export class HomeComponent implements OnInit {
       .pipe(catchError(this.handleError))
       .subscribe((resp: any) => {
         this.assessments = resp.data;
+        console.log(this.assessments);
+
         this.isLoading = false;
         this.totalPages = Math.ceil(
           this.assessments.length / this.itemsPerPage

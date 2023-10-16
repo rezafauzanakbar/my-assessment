@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Ierror } from 'src/app/interfaces/i-error';
 import { IUser } from 'src/app/interfaces/i-user';
-import { AssessmentModel } from 'src/app/models/assessment-model';
-import { Assessment, Question } from 'src/app/models/assessment-modelnew';
+import { Assessment } from 'src/app/models/assessment-modelnew';
 import { ChoiceModel } from 'src/app/models/choice-model';
 import { QuestionModel } from 'src/app/models/question-model';
-import { ResultModel } from 'src/app/models/result-model';
-import { UserModel } from 'src/app/models/user-model';
 import { AssessmentServiceNew } from 'src/app/services/assessmentnew.service';
 import Swal from 'sweetalert2';
 
@@ -18,6 +16,9 @@ import Swal from 'sweetalert2';
 })
 export class AssessmentCreateComponent implements OnInit {
   closeResult: string = '';
+
+  // untuk mendapatkan error
+  errors: Ierror[] = []
 
   assessment: Assessment = {
     title: '',
@@ -59,20 +60,28 @@ export class AssessmentCreateComponent implements OnInit {
       cancelButtonText: 'Tidak'
     }).then((result) => {
       if (result.isConfirmed) {
-        if (this.isAssessmentValid()) {
-          // Panggil layanan untuk mengirim data assessment ke API
-          this.assessmentService
-            .createAssessment(this.assessment)
-            .subscribe((response) => {
-              console.log('Response from API:', response);
-            });
-          Swal.fire('Create Berhasil!', '', 'success');
-          this.router.navigate(["/home"]);
+        if (this.assessment.title != "" && this.assessment.questions.length !== 0 && this.assessment.endDate !== "") {
+          if (this.isAssessmentValid()) {
+            // Panggil layanan untuk mengirim data assessment ke API
+            this.assessmentService
+              .createAssessment(this.assessment)
+              .subscribe((response) => {
+                console.log('Response from API:', response);
+                Swal.fire('Create Berhasil!', '', 'success');
+                this.router.navigate(["/home"]);
+              },
+                (error) => {
+                  if (error.status === 400) {
+                    this.errors = error.error.subErrors
+                  }
+                });
+
+          } else {
+            Swal.fire('Assessment is not valid. Please try again!', '', 'error');
+
+          }
         } else {
-          Swal.fire('Assessment is not valid. Please try again!', '', 'error');
-          console.error(
-            'Assessment is not valid. Ensure only one true choice per question and up to 4 choices.'
-          );
+          Swal.fire('Please input the field', '', 'error');
         }
       } else {
         Swal.fire('Tindakan dibatalkan.', '', 'error');
