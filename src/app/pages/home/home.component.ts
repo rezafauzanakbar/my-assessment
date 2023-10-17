@@ -65,7 +65,6 @@ export class HomeComponent implements OnInit {
       .pipe(catchError(this.handleError))
       .subscribe((resp: any) => {
         this.assessments = resp.data;
-        console.log(this.assessments);
 
         this.isLoading = false;
         this.totalPages = Math.ceil(

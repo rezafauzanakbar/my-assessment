@@ -14,11 +14,24 @@ export class ResultComponent implements OnInit {
   // mengambil data all result
   result: IResult[] = []
 
+  // finalscore
+  finalScore0to50: any[] = [];
+  finalScore51to70: any[] = [];
+  finalScore71to100: any[] = [];
+
   // mengambil data jumlah result
   countResult: number
 
+  finalScore50: number
+  finalScore70: number
+  finalScore100: number
+
   constructor(private resultService: ResultService) {
     this.countResult = 0
+
+    this.finalScore50 = 0
+    this.finalScore70 = 0
+    this.finalScore100 = 0
   }
 
   ngOnInit(): void {
@@ -28,6 +41,17 @@ export class ResultComponent implements OnInit {
   getDataResult() {
     this.resultService.getAllResult().pipe(catchError(this.handleError)).subscribe((resp: any) => {
       this.result = resp.data
+      console.log(this.result)
+
+
+      this.finalScore0to50 = this.result.filter(item => Number(item.finalScore) >= 0 && Number(item.finalScore) <= 50);
+      this.finalScore51to70 = this.result.filter(item => Number(item.finalScore) >= 51 && Number(item.finalScore) <= 70);
+      this.finalScore71to100 = this.result.filter(item => Number(item.finalScore) >= 71 && Number(item.finalScore) <= 100);
+
+      this.finalScore50 = this.finalScore0to50.length
+      this.finalScore70 = this.finalScore51to70.length
+      this.finalScore100 = this.finalScore71to100.length
+
       this.countResult = this.result.length
 
     })

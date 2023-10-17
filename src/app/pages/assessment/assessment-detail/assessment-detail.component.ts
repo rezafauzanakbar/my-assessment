@@ -9,6 +9,7 @@ import { AssessmentServiceNew } from 'src/app/services/assessmentnew.service';
 import { IUser } from 'src/app/interfaces/i-user';
 import { HttpErrorResponse } from '@angular/common/http';
 import Swal from 'sweetalert2';
+import { IQuestion } from '../../../interfaces/i-question';
 
 @Component({
   selector: 'app-assessment-detail',
@@ -40,7 +41,7 @@ export class AssessmentDetailComponent implements OnInit, OnDestroy {
   participant: [] = []
 
   // untuk mengirim ke component question
-  question: [] = []
+  question: IQuestion[] = []
 
   // mengambil data user
   getparticipant: IUser[] = [];
@@ -158,6 +159,8 @@ export class AssessmentDetailComponent implements OnInit, OnDestroy {
       this.assessmentService.getDetail(params.get('id'))
         .subscribe((resp: any) => {
           this.assessment = resp
+          console.log(this.assessment);
+
 
           this.title = resp.data.title
           this.endDate = new Date(resp.data.endDate)
@@ -167,6 +170,8 @@ export class AssessmentDetailComponent implements OnInit, OnDestroy {
 
           // untuk mengambil data question
           this.question = resp.data.questions
+          console.log(this.question);
+
 
           // Merubah format untuk dibandingkan
           const currentDateFormatted = format(this.currentDate, 'yyyy-MM-dd hh:mm:ss');

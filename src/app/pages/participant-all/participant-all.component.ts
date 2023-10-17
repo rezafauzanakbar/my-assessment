@@ -13,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class ParticipantAllComponent implements OnInit {
 
   // get data participant
-  participant: IUser[] = []
+  participant: IUser[] | any = []
 
   // jumlah participant
   countParticipant: number
@@ -24,10 +24,13 @@ export class ParticipantAllComponent implements OnInit {
   // Search
   keyword: string
 
+  isCollapsed : boolean;
+
   constructor(private userService: UserService) {
     this.countParticipant = 0
     this.isLoading = true;
     this.keyword = ""
+    this.isCollapsed = true
   }
 
   ngOnInit(): void {
@@ -37,22 +40,24 @@ export class ParticipantAllComponent implements OnInit {
   getAllParticipant() {
     this.userService.getAllUser().pipe(catchError(this.handleError)).subscribe((resp: any) => {
       this.participant = resp.data
+      console.log(this.participant);
+
       this.isLoading = false;
       this.countParticipant = this.participant.length
     })
   }
 
-  search(keyword: string) {
-    if (keyword != "") {
-      // Mencari data yang cocok dengan kata kunci
-      this.participant = this.participant.filter(item =>
-        item.name.toLowerCase().includes(keyword.toLowerCase())
-      );
-    } else {
-      // Jika tidak ada kata kunci, tampilkan semua data
-      this.getAllParticipant()
-    }
-  }
+  // search(keyword: string) {
+  //   if (keyword != "") {
+  //     // Mencari data yang cocok dengan kata kunci
+  //     this.participant = this.participant.filter(item =>
+  //       item.name.toLowerCase().includes(keyword.toLowerCase())
+  //     );
+  //   } else {
+  //     // Jika tidak ada kata kunci, tampilkan semua data
+  //     this.getAllParticipant()
+  //   }
+  // }
 
   public handleError(error: HttpErrorResponse) {
     if (error.status === 0) {

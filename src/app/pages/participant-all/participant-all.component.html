@@ -9,7 +9,7 @@
                     <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                         aria-label="Search" [(ngModel)]="keyword">
                     <div class="input-group-append">
-                        <button class="btn btn-secondary" (click)="search(keyword)">
+                        <button class="btn btn-secondary">
                             <i class="fas fa-search fa-sm"></i>
                         </button>
                     </div>
@@ -19,7 +19,7 @@
 
         <div class="p-5">
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">PARTICIPANT</h1>
+                <h1 class="h3 mb-0 text-gray-800">USER</h1>
             </div>
             <div class="row">
                 <div class="col-xl-3 col-md-6 mb-4">
@@ -28,7 +28,7 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Jumlah Participant</div>
+                                        Jumlah User</div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{countParticipant}}</div>
                                 </div>
                                 <div class="col-auto">
@@ -41,9 +41,10 @@
             </div>
 
             <!-- TABLES -->
-            <div *ngFor="let item of participant" class="col-md-12">
-                <div  class="card card-custom-participant mb-3 shadow-lg">
-                    <div class="card-body d-flex justify-content-between">
+            <div *ngFor="let item of participant; let i = index" class="col-md-12">
+                <div class="card card-custom-participant mb-3 shadow-lg">
+                    <div class="card-body d-flex justify-content-between" (click)="isCollapsed = ! isCollapsed"
+                        [attr.aria-expanded]="!isCollapsed">
                         <div class="d-flex justify-content-around">
                             <div class="bg-line-participant"></div>
                             <div class="container-participant">
@@ -51,10 +52,12 @@
                                 <span class="small text-secondary">{{item.email}}</span>
                             </div>
                         </div>
-                        <div class="container-participant-score">
-                            <span class="d-flex justify-content-center align-items-center">96</span>
-                        </div>
                     </div>
+                    <!-- <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                        <div class="card">
+                            <div class="card-body">You can collapse this card by clicking one Toggle button</div>
+                        </div>
+                    </div> -->
                 </div>
             </div>
             <div *ngIf="isLoading" class="d-flex justify-content-center spinner-custom">
